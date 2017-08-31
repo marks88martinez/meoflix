@@ -1,0 +1,93 @@
+<style>
+.stylo_producto{
+  text-align: center;
+
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+}
+.contenido{
+  padding-top: 5rem;
+}
+.bg_prod{
+  background: #ff845d;
+  margin: 2px;
+  cursor: pointer;
+
+}
+.bg_prod a{
+color: #fff;
+
+}
+</style>
+
+
+
+<nav class="navbar fixed-top charming-navbar navbar-toggleable-md navbar-light wow fadeInDown  menu_prod">
+
+  <ul class="nav justify-content-center">
+<% @produc.datosproducto.each do |p|%>
+  <li class="nav-item bg_prod">
+    <a class="nav-link" id='section_<%= p.id %>' href='#<%= p.id%>'> <%= p.nombre %> </a>
+
+  </li>
+  <% end %>
+
+</ul>
+</nav>
+
+
+  <% if !@produc.datosproducto.blank? %>
+<div class="container espacio">
+
+  <h1 ><%= @produc.nombre %></h1>
+
+</div>
+<% @produc.datosproducto.each do |p|%>
+<section  class='<%= p.id%>' id='<%= p.id%>'>
+  <div class="jumbotron stylo_producto"  style='background: <%= p.color_bg %>' >
+
+    <div class="container contenido">
+      <h1 class="wow flipInX"><%= p.nombre %></h1>
+      <p class="lead wow flipInY"><%= p.descripcion %></p>
+      <% if !p.picture.blank? %>
+        <%= image_tag p.picture.url(:large), class: "rounded empresa wow slideInDown   " %>
+      <!-- <p><a class="btn btn-lg btn-success" href="#" role="button">Get started today</a></p> -->
+      <% end %>
+
+    </div>
+  </div>
+</section>
+  <% end %>
+  <% else %>
+  <div class="container espacio">
+    <br>
+    <h1 ><%= @produc.nombre %></h1>
+
+  </div>
+
+  <div class="jumbotron" style="text-align: center">
+
+    <div class="container">
+      <h1>Sin Datos</h1>
+      <!-- <p><a class="btn btn-lg btn-success" href="#" role="button">Get started today</a></p> -->
+      <hr>
+
+    </div>
+
+
+  <% end %>
+
+  <% content_for :productos do %>
+    <script type="text/javascript">
+      <% @produc.datosproducto.each do |p|%>
+      $("#section_<%= p.id %>").on('click',function(event) {
+
+        $('html, body').animate({
+             scrollTop: $(".<%= p.id %>").offset().top-92 /*class you want to scroll to!!*/
+         }, 1000);
+      });
+      <% end %>
+    </script>
+  <% end %>
+  <br>

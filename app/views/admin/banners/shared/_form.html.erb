@@ -1,0 +1,61 @@
+
+
+                <h1 class="page-header">Banner</h1>
+                <% if @banner.errors.any? %>
+                  <div class="alert alert-danger alert-dismissable">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                      <ul>
+                        <% @banner.errors.full_messages.each do |messages| %>
+                        <li><%= messages%></li>
+                        <% end %>
+                      </ul>
+                  </div>
+                  <%end%>
+
+                <!-- <div class="col-lg-6"> -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+
+                          <%= action %>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                          <div class="col-lg-6">
+
+                            <%=form_for([:admin, @banner], html: { multipart: true }) do |f|%>
+                            <div class="form-group">
+                                <%=f.label :url_banner%><br>
+                                <%= f.text_field :url_banner, class: "form-control"%>
+
+                            </div>
+                              <div class="form-group">
+                                  <%=f.label :picture%><br>
+                                  <%=f.file_field :picture, class:"btn btn-default"%>
+
+                              </div>
+                              <div class="form-group">
+                                  <%=f.label :titulo%><br>
+                                  <%= f.text_field :titulo, class: "form-control"%>
+                              </div>
+                              <div class="form-group">
+                                  <%=f.label :animate_titulo%><br>
+                                  <%= f.text_field :a_titulo, class: "form-control"%>
+                              </div>
+                              <div class="form-group">
+                                    <%=f.label :descripcion%><br>
+                                  <%= f.text_area :descripcion, class: "form-control"%>
+                              </div>
+                              <div class="form-group">
+                                  <%=f.label :animate_descripcion%><br>
+                                  <%= f.text_field :a_descripcion, class: "form-control"%>
+                              </div>
+
+                              <button type="submit" class="btn btn-default">Salvar</button>
+                            <%end%>
+
+                          </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                <!-- </div> -->

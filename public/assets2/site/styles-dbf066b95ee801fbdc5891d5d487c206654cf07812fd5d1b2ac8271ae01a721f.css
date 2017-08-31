@@ -1,0 +1,155 @@
+/* line 7, /Users/marcosmartinez/Documents/wigo/web_wigo/app/assets/stylesheets/site/styles.scss */
+body {
+  font-family: 'Oswald', sans-serif;
+  padding-top: 0;
+}
+
+/* line 12, /Users/marcosmartinez/Documents/wigo/web_wigo/app/assets/stylesheets/site/styles.scss */
+.font i {
+  color: #7db8c5;
+  padding: 1rem;
+}
+
+/* line 16, /Users/marcosmartinez/Documents/wigo/web_wigo/app/assets/stylesheets/site/styles.scss */
+.navbar {
+  padding-top: 20px;
+}
+
+/* line 20, /Users/marcosmartinez/Documents/wigo/web_wigo/app/assets/stylesheets/site/styles.scss */
+.logo img {
+  width: 5.5rem;
+  height: auto;
+}
+
+/* line 25, /Users/marcosmartinez/Documents/wigo/web_wigo/app/assets/stylesheets/site/styles.scss */
+.bg, .bg2 {
+  background: rgba(16, 16, 16, 0.6);
+}
+
+/* line 28, /Users/marcosmartinez/Documents/wigo/web_wigo/app/assets/stylesheets/site/styles.scss */
+.bg2 {
+  padding: 10px;
+}
+
+/* line 32, /Users/marcosmartinez/Documents/wigo/web_wigo/app/assets/stylesheets/site/styles.scss */
+.carousel-indicators .active {
+  background-color: #7facb7;
+}
+
+/* line 36, /Users/marcosmartinez/Documents/wigo/web_wigo/app/assets/stylesheets/site/styles.scss */
+.carousel {
+  margin-bottom: 4rem;
+  border-bottom: solid 4px #8abac5;
+}
+
+/* Since positioning the image, we need to help out the caption */
+/* line 41, /Users/marcosmartinez/Documents/wigo/web_wigo/app/assets/stylesheets/site/styles.scss */
+.carousel-caption {
+  z-index: 10;
+  bottom: 3rem;
+}
+
+/* Declare heights because of positioning of img element */
+/* line 47, /Users/marcosmartinez/Documents/wigo/web_wigo/app/assets/stylesheets/site/styles.scss */
+.carousel-item {
+  /*height:*/
+  /*height: 32rem;*/
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #777;
+}
+
+/* line 55, /Users/marcosmartinez/Documents/wigo/web_wigo/app/assets/stylesheets/site/styles.scss */
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 100vh;
+}
+
+/* line 62, /Users/marcosmartinez/Documents/wigo/web_wigo/app/assets/stylesheets/site/styles.scss */
+.navbar-light .navbar-nav .nav-link {
+  color: #fff;
+  margin-left: 4px;
+  margin-right: 4px;
+  border-bottom: solid 2px rgba(255, 255, 255, 0);
+  cursor: pointer;
+}
+
+/* line 69, /Users/marcosmartinez/Documents/wigo/web_wigo/app/assets/stylesheets/site/styles.scss */
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+  color: #fff;
+  /* background: silver; */
+  border-bottom: solid 2px #8dc0cb;
+  -webkit-transition: all 2s ease-in-out;
+  /* Safari */
+  transition: all 2s ease-in-out;
+}
+
+/* line 77, /Users/marcosmartinez/Documents/wigo/web_wigo/app/assets/stylesheets/site/styles.scss */
+.navbar-light .navbar-nav .open > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.open, .navbar-light .navbar-nav .nav-link.active {
+  color: #fff;
+  /* background: silver; */
+  border-bottom: solid 2px #8dc0cb;
+  -webkit-transition: all 2s ease-in-out;
+  /* Safari */
+  transition: all 2s ease-in-out;
+}
+
+/* line 85, /Users/marcosmartinez/Documents/wigo/web_wigo/app/assets/stylesheets/site/styles.scss */
+.back-to-top {
+  background: #8dbfca;
+  border-color: #8dbfca;
+  z-index: 100;
+  cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+}
+/* line 94, /Users/marcosmartinez/Documents/wigo/web_wigo/app/assets/stylesheets/site/styles.scss */
+.back-to-top:hover {
+  background: #7db8c5;
+  border-color: #7db8c5;
+}
+
+/* line 99, /Users/marcosmartinez/Documents/wigo/web_wigo/app/assets/stylesheets/site/styles.scss */
+.back-to-top span img {
+  width: 1rem;
+  height: auto;
+}
+
+/* line 104, /Users/marcosmartinez/Documents/wigo/web_wigo/app/assets/stylesheets/site/styles.scss */
+.btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #7db8c5;
+  background-image: none;
+  border-color: #7db8c5;
+}
+
+/* line 110, /Users/marcosmartinez/Documents/wigo/web_wigo/app/assets/stylesheets/site/styles.scss */
+.color {
+  background: #e4f2f5;
+  padding: 3rem;
+}
+
+/* line 114, /Users/marcosmartinez/Documents/wigo/web_wigo/app/assets/stylesheets/site/styles.scss */
+.jumbotron {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  background-color: #e6f2f5;
+  border-radius: 0.3rem;
+}
+
+/* line 120, /Users/marcosmartinez/Documents/wigo/web_wigo/app/assets/stylesheets/site/styles.scss */
+.bd-footer {
+  font-size: 85%;
+  text-align: center;
+}
+
+/* line 127, /Users/marcosmartinez/Documents/wigo/web_wigo/app/assets/stylesheets/site/styles.scss */
+.bd-footer i {
+  padding: 1rem;
+}

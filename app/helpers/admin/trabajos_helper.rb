@@ -1,0 +1,2 @@
+module Admin::TrabajosHelper
+end

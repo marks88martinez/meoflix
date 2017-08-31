@@ -1,0 +1,2 @@
+module Admin::SendMailHelper
+end

@@ -1,0 +1,59 @@
+
+
+                  <h1 class="page-header">Section</h1>
+                  <% if @textos.errors.any? %>
+                    <div class="alert alert-danger alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <ul>
+                          <% @textos.errors.full_messages.each do |messages| %>
+                          <li><%= messages%></li>
+                          <% end %>
+                        </ul>
+                    </div>
+                    <%end%>
+
+                  <!-- <div class="col-lg-6"> -->
+                      <div class="panel panel-default">
+                          <div class="panel-heading">
+
+                            <%= action %>
+                          </div>
+                          <!-- /.panel-heading -->
+                          <div class="panel-body">
+                            <div class="col-lg-6">
+
+                              <%=form_for([:admin, @textos]) do |f|%>
+                                <div class="form-group">
+                                    <label>contacto</label>
+                                    <%= f.text_field :menu, class: "form-control"%>
+                                </div>
+                                <div class="form-group">
+                                    <label>contacto</label>
+                                    <%= f.text_field :contacto, class: "form-control"%>
+                                </div>
+
+                                <%= f.fields_for :texto do |s| %>
+                                <div class="field">
+                                  <%= f.label :street %><br>
+                                  <%= s.text_field :street %>
+                                </div>
+                                <div class="field">
+                                  <%= f.label :city %><br>
+                                  <%= s.text_field :city %>
+                                </div>
+                                <div class="field">
+                                  <%= f.label :state %><br>
+                                  <%= s.text_field :state %>
+                                </div>
+                              <% end %>
+
+                                <button type="submit" class="btn btn-default">Salvar</button>
+                              <%end%>
+
+
+                            </div>
+                          </div>
+                          <!-- /.panel-body -->
+                      </div>
+                      <!-- /.panel -->
+                  <!-- </div> -->

@@ -1,0 +1,2 @@
+module Site::ProductosHelper
+end

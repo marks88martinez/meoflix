@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://v4-alpha.getbootstrap.com/examples/carousel/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="https://v4-alpha.getbootstrap.com/favicon.ico">
+
+    <title>Carousel Template for Bootstrap</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<link href="https://fonts.googleapis.com/css?family=News+Cycle" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="/asset/css/bootstrap.css" rel="stylesheet">
+    <link href="/asset/css/carousel.css" rel="stylesheet">
+    <%= stylesheet_link_tag    'site/styles' %>
+
+
+    <%= csrf_meta_tags %>
+
+
+
+
+  </head>
+  <body>
+    <nav class=" navbar fixed-top charming-navbar navbar-toggleable-md navbar-light bg">
+        <div class="container">
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar-nav" aria-controls="navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <%= link_to  root_path , {:class => "navbar-brand mr-5 logo"} do%>
+            <img class="navbar-brand-logo" src="/img/logo2.png" >
+          <% end%>
+
+
+          <div class="navbar-collapse justify-content-md-end collapse " id="navbar-nav">
+            <ul class="navbar-nav charming-mobile-nav">
+              <li class="nav-item dropdown">
+                <%= link_to home_index_path , :class => "nav-link section" do %>
+                HOME
+                <% end %>
+                <!-- <a class="nav-link section  " id="s1" href="#1">
+                  HOME
+                </a> -->
+
+              </li>
+
+              <li class="nav-item ">
+                <!-- <a class="nav-link section " id="s2" href="#2" >
+                  EMPRESA
+                </a> -->
+                <%= link_to site_infos_path , :class => "nav-link section" do %>
+                EMPRESA
+                <% end %>
+
+
+
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PRODUCTOS</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                  <% @producto.each do |produc|  %>
+                  <a class="dropdown-item" href="<%= site_producto_path(produc) %>"> <%= produc.nombre %> </a>
+                  <% end %>
+                </div>
+              </li>
+
+              <!-- <li class="nav-item dropdown">
+                <a class="nav-link section "  id="s3"href="#3">
+                  QUE HACEMOS
+                </a>
+
+              </li>
+
+
+              <li class="nav-item">
+                <a href="#4"  id="s4" class="nav-link section">CONTACTO</a>
+              </li> -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">IDIOMAS</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                  <% @idiomas.each do |idioma|  %>
+                  <a class="dropdown-item" href="<%= idioma.link.blank? ? "#" : idioma.link %>"><%=idioma.nombre%></a>
+                  <% end %>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+        </div>
+        </nav>
+
+
+<div class="body_contenido">
+<%= yield  %>
+</div>
+
+
+
+
+
+  <!--///////////////////////-->
+    <!-- <section class="container " id="3">
+      <section class="jumbotron text-center wow bounceInLeft  ">
+      <div class="container ">
+        <h1 class="jumbotron-heading">Qué Hacemos</h1>
+
+      </div>
+    </section>
+
+      <div class="row row-padded homepage-grid row-bordered p-t text-center font">
+        <% @hacemos.each do |hacemo| %>
+          <div class="col-sm-4 wow <%= hacemo.animate %>">
+            <i class="fa <%= hacemo.icon %> fa-5x " aria-hidden="true"></i>
+            <h5><strong><%= hacemo.titulo %></strong></h5>
+            <p class="text-muted"><%= hacemo.descripcion %></p>
+          </div>
+        <% end %>
+
+
+        </div>
+          <hr class="featurette-divider">
+    </section> -->
+
+    <!--///////////////////////-->
+      <!-- <section class="container " id="4">
+        <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Contacto</h1>
+          <p class="lead text-muted">Wigo Creative está con las puertas abiertas para todos los empresarios que deseen asociarse a nuestras ideas, pues creemos en la unión de las habilidades de cada uno para el logro de un único objetivo, que es la conquista del mercado</p>
+
+        </div>
+      </section>
+      <%if notice%>
+      <div class="alert alert-success alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <%=notice%>
+      </div>
+      <% end%>
+      <%= form_tag(admin_send_mail_index_path, remote: true) do  %>
+
+
+        <div class="row justify-content-center wow bounceInDown" data-wow-delay="1s">
+          <div class="col-sm-6">
+
+              <div class="form-group row">
+              <label for="example-text-input" class="col-2 col-form-label">NOMBRE</label>
+              <div class="col-10 ">
+                <%= text_field_tag(:'name-text', nil, class: "form-control", required: "required") %>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="example-search-input" class="col-2 col-form-label">ASUNTO</label>
+              <div class="col-10">
+                <%= text_field_tag(:'asunto-text', nil,id: "recipient-text", class: "form-control", required: "required")%>
+
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="example-email-input" class="col-2 col-form-label">Email</label>
+              <div class="col-10">
+                <%= email_field_tag(:'to-text', nil,id: "subject-text", class: "form-control", required: "required") %>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="example-search-input" class="col-2 col-form-label">MENSAJE</label>
+              <div class="col-10">
+                <%= text_area_tag(:'message-text', nil, class: "form-control", required: "required") %>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="example-search-input" class="col-2 col-form-label"></label>
+              <div class="col-10">
+                <%= submit_tag 'Enviar', class: "btn btn-outline-info btn-lg btn-block", id:"btn_sub"%>
+              </div>
+            </div>
+
+
+
+
+          </div>
+
+        </div>
+      <% end %>
+
+
+      </section> -->
+
+
+
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+
+
+    <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"><img src="/img/up.png" alt=""></span></a>
+
+
+
+      <!-- <hr class="featurette-divider"> -->
+
+      <!-- /END THE FEATURETTES -->
+
+
+
+
+    </div><!-- /.container -->
+
+    <!-- FOOTER -->
+
+
+    <footer class="container footer">
+      <p>© 2017 Company, Inc. · <a href="https://v4-alpha.getbootstrap.com/examples/carousel/#">Privacy</a> · <a href="https://v4-alpha.getbootstrap.com/examples/carousel/#">Terms</a></p>
+    </footer>
+
+
+
+
+
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <script src="/asset/js/jquery-3.1.1.slim.min.js" charset="utf-8"></script>
+    <script src="/asset/js/tether.min.js" charset="utf-8"></script>
+      <%= javascript_include_tag 'application' %>
+
+      <script src="/asset/js/bootstrap.js" charset="utf-8"></script>
+
+      <script src="/asset/js/wow.min.js" charset="utf-8"></script>
+
+
+
+<script src="https://use.fontawesome.com/35c5cb92b1.js"></script>
+      <script type="text/javascript">
+      new WOW().init();
+
+      $("#s1").on('click',function(event) {
+        $('#s1').addClass('active');
+        $('#s2').removeClass('active');
+        $('#s3').removeClass('active');
+        $('#s4').removeClass('active');
+        event.preventDefault();
+         $('html, body').animate({
+             scrollTop: $("#1").offset().top
+         }, 1000);
+      });
+
+      $("#s2").on('click',function(event) {
+        $('.section').removeClass('active');
+        $('#s2').addClass('active');
+          event.preventDefault();
+
+         $('html, body').animate({
+             scrollTop: $("#2").offset().top-92
+         }, 1000);
+      });
+      $("#s3").on('click',function(event) {
+        $('.section').removeClass('active');
+        $('#s3').addClass('active');
+          event.preventDefault();
+
+         $('html, body').animate({
+             scrollTop: $("#3").offset().top-92
+         }, 1000);
+      });  $("#s4").on('click',function(event) {
+        $('.section').removeClass('active');
+          $('#s4').addClass('active');
+          event.preventDefault();
+           $('html, body').animate({
+               scrollTop: $("#4").offset().top-92
+           }, 1000);
+        });
+
+        $(document).ready(function(){
+             $(window).scroll(function () {
+                    if ($(this).scrollTop() > 50) {
+                        $('#back-to-top').fadeIn();
+
+                    } else {
+                        $('#back-to-top').fadeOut();
+                    }
+                });
+                // scroll body to 0px on click
+                $('#back-to-top').click(function (event) {
+                  $('.section').removeClass('active');
+                  $('#s1').addClass('active');
+                    event.preventDefault();
+
+                    $('#back-to-top').tooltip('hide');
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 800);
+                    return false;
+                });
+
+                $('#back-to-top').tooltip('show');
+
+        });
+
+        // /////////////////////////
+
+
+
+
+      </script>
+      <%= yield :productos %>
+
+
+
+
+    </body>
+</html>

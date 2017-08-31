@@ -1,0 +1,63 @@
+
+
+                <h1 class="page-header">Productos</h1>
+                <% if @caracteristica.errors.any? %>
+                  <div class="alert alert-danger alert-dismissable">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                      <ul>
+                        <% @caracteristica.errors.full_messages.each do |messages| %>
+                        <li><%= messages%></li>
+                        <% end %>
+                      </ul>
+                  </div>
+                  <%end%>
+
+                <!-- <div class="col-lg-6"> -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+
+                          <%= action %>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                          <div class="col-lg-6">
+
+                            <%= form_for([:admin, @caracteristica], :url => { :action => :create}  ) do |f|%>
+
+
+
+                              <div class="form-group">
+                                  <%=f.label :caracteristica%><br>
+                                  <%= f.grouped_collection_select :datosproducto_id, Producto.order(:nombre),:datosproducto, :nombre , :id, :nombre  %>
+
+                              </div>
+                              <div class="form-group">
+                                  <%=f.label :nombre%><br>
+                                  <%= f.text_field :nombre, class: "form-control"%>
+                              </div>
+                              <div class="form-group">
+                                  <%=f.label :descripcion%><br>
+                                  <%= f.text_field :descripcion, class: "form-control"%>
+                              </div>
+                              <div class="form-group">
+                                  <%=f.label :color_bg%><br>
+                                  <%= f.text_field :color_bg, class: "form-control"%>
+                              </div>
+
+                              <div class="form-group">
+                                  <%=f.label :picture%><br>
+                                  <%=f.file_field :picture, class:"btn btn-default"%>
+
+                              </div>
+
+
+
+                              <button type="submit" class="btn btn-default">Salvar</button>
+                            <%end%>
+
+                          </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                <!-- </div> -->
